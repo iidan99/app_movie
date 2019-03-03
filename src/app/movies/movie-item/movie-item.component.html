@@ -1,0 +1,20 @@
+<div class="movie-card">
+  <div class="movie-flip">
+    <div class="movie-flip-front">
+      <img class="movie_poster" [src]="movie.poster" alt="">
+    </div>
+    <div class="movie-flip-back">
+      <div class="content">
+        <p class="title"> {{ movie.title }} </p>
+        <p class="content_info">Release Date: <span>{{ movie.year }}</span></p>
+        <p class="content_info">Genre: <span>{{ movie.genre }}</span></p>
+        <p class="content_info">Language: <span>{{ movie.language }}</span></p>
+        <p class="content_info">Time: <span>{{ movie.runtime }}</span></p>
+      </div>
+      <div class="btn">
+        <button  (click)="onEdit()" class="edit_btn">Edit</button>
+        <button (click)="onDelete()" class="delete_btn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

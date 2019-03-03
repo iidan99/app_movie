@@ -1,0 +1,47 @@
+<div class="container">
+  <div *ngIf="!edit" class="row">
+    <p class="title">Do you sure you want to delete this movie?</p>
+    <div (click)="onClose()" class="exit_btn">
+      <span class="left_line"></span>
+      <span class="right_line"></span>
+    </div>
+    <div class="btn_row">
+      <div class="accept">
+        <button (click)="onDelete()" class="accept_btn">Yes</button>
+      </div>
+      <div class="cancel">
+        <button (click)="onClose()" class="cancel_btn">No</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="edit" class="edit_container">
+    <div class="secound_continer">
+      <div (click)="onClose()" class="exit_btn">
+        <span class="left_line"></span>
+        <span class="right_line"></span>
+      </div>
+      <div class="left_content">
+        <img class="movie_poster" [src]="movie.poster" alt="{{ movie.title }} ">
+      </div>
+      <div class="right_content">
+        <form>
+          <p>Movie Name: <input type="text" value="{{ movie.title }}"> </p>
+          <p>Movie Genre:</p>
+          <div class="checkbox_container">
+            <div class="checkbox" *ngFor="let genre of check">
+              <input type="checkbox" [value]="genre">
+              <label>{{genre}}</label>
+            </div>
+          </div>
+          <p>Movie Language: {{ movie.language }}</p>
+          <p>Movie Time: {{ movie.runtime }}</p>
+          <p>Movie Year: {{ movie.year }}</p>
+          <div class="edit_btn">
+            <button class="save_btn">Save</button>
+            <button (click)="onClose()" class="cancel_btn_edit">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

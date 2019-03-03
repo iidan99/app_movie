@@ -1,0 +1,8 @@
+.container{
+    width:60%;
+    margin: 10px auto;
+    display: flex;
+    border-radius: 15px;
+    min-height: 820px;
+    /* background-color: aquamarine; */
+}

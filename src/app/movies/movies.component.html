@@ -1,0 +1,5 @@
+<div class="container">
+<app-movie-item *ngFor="let movie of movieLists" (deletedMovie)="onDelete($event)" [movie]="movie"
+(selectedMovie)="onEdit($event)"
+></app-movie-item>
+</div>
