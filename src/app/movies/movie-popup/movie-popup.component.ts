@@ -10,20 +10,16 @@ import { MovieModel } from '../movies.model';
 export class MoviePopupComponent implements OnInit {
   @Output() delete = new EventEmitter<boolean>();
   movie: MovieModel;
-  edit:boolean;
+  // edit:boolean;
   check = [];
   constructor(private popupservice: PopupService) { }
   ngOnInit() {
-    this.edit = this.popupservice.edit;
+    // this.edit = this.popupservice.edit;
     this.movie = this.popupservice.movie;
    
     if(this.popupservice.edit){
     this.check.push(...this.movie.genre.split(","));
     }
-  }
-
-  onDelete() {
-    this.popupservice.onDelete();
   }
 
   onClose() {

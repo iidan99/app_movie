@@ -1,3 +1,4 @@
-<app-movie-popup *ngIf="popupservice.active" (delete)="onDelete($event)"></app-movie-popup>
+<app-movie-popup *ngIf="popupservice.active && popupservice.edit" (delete)="onDelete($event)"></app-movie-popup>
+<app-movie-delete *ngIf="popupservice.active && !popupservice.edit" ></app-movie-delete>
 <app-header></app-header>
 <app-movies></app-movies>

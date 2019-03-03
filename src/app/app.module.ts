@@ -7,6 +7,7 @@ import { MovieItemComponent } from './movies/movie-item/movie-item.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 import { HeaderComponent } from './header/header.component';
 import { MoviePopupComponent } from './movies/movie-popup/movie-popup.component';
+import { MovieDeleteComponent } from './movies/movie-delete/movie-delete.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MoviePopupComponent } from './movies/movie-popup/movie-popup.component'
     MovieItemComponent,
     MovieEditComponent,
     HeaderComponent,
-    MoviePopupComponent
+    MoviePopupComponent,
+    MovieDeleteComponent
   ],
   imports: [
     BrowserModule
