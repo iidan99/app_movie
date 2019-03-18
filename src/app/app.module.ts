@@ -8,6 +8,9 @@ import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 import { HeaderComponent } from './header/header.component';
 import { MoviePopupComponent } from './movies/movie-popup/movie-popup.component';
 import { MovieDeleteComponent } from './movies/movie-delete/movie-delete.component';
+import { FormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { MovieDeleteComponent } from './movies/movie-delete/movie-delete.compone
     MovieDeleteComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

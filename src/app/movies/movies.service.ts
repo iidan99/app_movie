@@ -39,4 +39,8 @@ export class MoviesService {
     this.movies = this.movies.filter(movie => movie.id !== movId);
     this.updateMovie.next(this.movies);
   }
+  onAdd(){
+    this.movies.push(this.movie);
+    this.updateMovie.next(this.movies);
+  }
 }

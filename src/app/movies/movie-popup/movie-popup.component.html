@@ -9,20 +9,22 @@
         <img class="movie_poster" [src]="movie.poster" alt="{{ movie.title }} ">
       </div>
       <div class="right_content">
-        <form>
+        <form (ngSubmit)="onSubmit()" #form="ngForm">
           <p>Movie Name: <input type="text" value="{{ movie.title }}"> </p>
           <p>Movie Genre:</p>
           <div class="checkbox_container">
-            <div class="checkbox" *ngFor="let genre of check">
-              <input type="checkbox" [value]="genre">
-              <label>{{genre}}</label>
+            <div class="checkbox" *ngFor="let genre of movieGenre">
+              <label class="checkbox_btn">{{genre}}
+              <input class="checkbox_input" type="checkbox" [value]="genre">
+              <span class="checkmark"></span>
+            </label>
             </div>
           </div>
           <p>Movie Language: {{ movie.language }}</p>
           <p>Movie Time: {{ movie.runtime }}</p>
           <p>Movie Year: {{ movie.year }}</p>
           <div class="edit_btn">
-            <button class="save_btn">Save</button>
+            <button class="save_btn" type="submit">Save</button>
             <button (click)="onClose()" class="cancel_btn_edit">Cancel</button>
           </div>
         </form>
