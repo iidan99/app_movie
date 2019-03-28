@@ -1,16 +1,38 @@
-<label class="container">One
-  <input type="checkbox" checked="checked">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Two
-  <input type="checkbox">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Three
-  <input type="checkbox">
-  <span class="checkmark"></span>
-</label>
-<label class="container">Four
-  <input type="checkbox">
-  <span class="checkmark"></span>
-</label>
+<div class="edit">
+  <div (click)="onClose()" class="exit_btn">
+    <span class="left_line"></span>
+    <span class="right_line"></span>
+  </div>
+  <div class="left_content">
+    <img class="movie_poster" [src]="movie.poster" alt="{{ movie.title }} ">
+  </div>
+  <div class="right_content">
+    <form (ngSubmit)="onSubmit()" [formGroup]="movieForm" class="form">
+      <div class="edit-row">
+        <p class="movie_options" >Movie Name</p>
+        <input class="input_field" type="text" formControlName="title" value="{{ movie.title }}"> 
+      </div>
+      <div class="edit-row">
+        <p class="movie_options">Movie Time</p>
+        <input class="input_field" type="text" formControlName="time"  value="{{ movie.runtime }}">
+      </div>
+      <div class="edit-row">
+        <p class="movie_options">Movie Year</p>
+        <input class="input_field" type="text" formControlName="year"  value="{{ movie.year }}">
+      </div>
+      <div class="edit_btn">
+        <button class="save_btn" type="submit">Save</button>
+        <button (click)="onClose()" class="cancel_btn_edit">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- <p>Movie Genre:</p>
+<div class="checkbox_container">
+  <div class="checkbox" *ngFor="let genre of movieGenre; let i = index">
+    <label class="checkbox_btn">{{genre}}
+      <input class="checkbox_input" type="checkbox" [checked] = "movie.genre.includes(genre)" [value]="genre" >
+      <span class="checkmark"></span>
+    </label>
+  </div>
+</div> -->

@@ -1,0 +1,88 @@
+.edit{
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+}
+
+.movie_poster{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+.left_content{
+    width: 32%;
+}
+.right_content{
+    width: 68%;
+    padding: 10px;
+}
+
+.checkbox_container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 82%;
+    margin: 0 auto;
+    font-size: 15px;
+    padding: 10px;
+}
+
+
+.checkbox_btn {
+    display: block;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .exit_btn{
+    position: absolute;
+    right:20px;
+    top:5px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    }
+    .exit_btn:hover span{
+        border-color: red;
+    }
+    .left_line, .right_line{
+        right: 12px;
+        position: absolute;
+        height: 25px;
+        border-left: 2px solid;   
+    }
+    .right_line{
+        transform: rotateZ(40deg);
+    }
+    .left_line{
+        transform: rotateZ(140deg);
+    }
+    .checkbox{
+        flex: 0 0 25%;
+    }
+    .form{
+        padding: 10px;
+        font-size: 20px;
+        line-height:35px;
+    }
+    .input_field{
+        border-radius: 15px;
+        width: 76%;
+        border: 1px solid black;
+        padding: 5px;
+        text-align: center;
+        font-size: 18px;
+        text-overflow: ellipsis;
+    }
+    .movie_options{
+     min-width: 128px;
+    }
+    .edit-row{
+        text-align: center;
+        margin: 0 auto;
+    }

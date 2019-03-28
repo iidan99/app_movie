@@ -43,4 +43,14 @@ export class MoviesService {
     this.movies.push(this.movie);
     this.updateMovie.next(this.movies);
   }
+  onSave(newValues){
+    // select the correct movie index in the array by the id
+    const corrcetMovie = this.movies.findIndex(movie => movie.id === this.movie.id);
+    
+    this.movies[corrcetMovie].title = newValues.title;
+    this.movies[corrcetMovie].runtime = newValues.time;
+    this.movies[corrcetMovie].year = newValues.year;
+
+    this.updateMovie.next(this.movies);
+  }
 }
