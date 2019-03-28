@@ -21,7 +21,7 @@
         <input class="input_field" type="text" formControlName="year"  value="{{ movie.year }}">
       </div>
       <div class="edit_btn">
-        <button class="save_btn" type="submit">Save</button>
+        <button class="save_btn" type="submit" [disabled]="!movieForm.valid">Save</button>
         <button (click)="onClose()" class="cancel_btn_edit">Cancel</button>
       </div>
     </form>
