@@ -71,7 +71,7 @@
         line-height:35px;
     }
     .input_field{
-        border-radius: 15px;
+        border-radius: 5px;
         width: 76%;
         border: 1px solid black;
         padding: 5px;
@@ -85,4 +85,14 @@
     .edit-row{
         text-align: center;
         margin: 0 auto;
+    }
+    .edit_btn{
+        position: absolute;
+        top:80%;
+    }
+    
+    .btn{
+        margin: 0 auto;
+        text-align: center; 
+        width: 100%;
     }
