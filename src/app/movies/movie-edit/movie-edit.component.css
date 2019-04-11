@@ -98,22 +98,60 @@
 
     .cancel_btn_edit{
         width: 30%;
-        border-radius: 5px;
+        border-radius: 20px;
         border: 1px solid;
         height: 35px;
         background-color: red;
         color: white;
         font-weight: 700;
+        cursor: pointer;
+        transition:500ms ease all;
     }
 
     .save_btn{
     width: 30%;
     margin-left: 10px;
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     border: 1px solid white;
     height: 35px;
     background-color: green;
     color: white;
     font-weight: 700;
+    cursor: pointer;
+    transition:500ms ease all;
+    }
+
+    .cancel_btn_edit:hover , .save_btn:hover:valid{
+        background-color: aqua;
+        border: 1px solid black;
+        color: black;
+    }
+    .save_btn:disabled{
+        background-color: gray;
+        cursor: not-allowed;
+    }
+    input.ng-invalid.ng-touched{
+        border: 1px solid red;
+    }
+
+    @media screen and (max-width: 786px){
+        .edit{
+            display: inline-block;
+        }
+        .left_content{
+            width: 50%;
+            margin: 0 auto;
+        }
+        .right_content{
+            width: 100%;
+            margin: 0 auto;
+        }
+        .input_field{
+            width: 100%;
+            font-size: 75%;
+        }
+        .movie_options{
+           font-size: 75%;
+        }
     }

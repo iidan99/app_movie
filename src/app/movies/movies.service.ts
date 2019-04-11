@@ -44,6 +44,7 @@ export class MoviesService {
     this.updateMovie.next(this.movies);
   }
   onSave(newValues){
+    
     const corrcetMovie = this.movies.findIndex(movie => movie.id === this.movie.id);
     this.movies[corrcetMovie].title = newValues.title;
     this.movies[corrcetMovie].runtime = newValues.time;

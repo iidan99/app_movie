@@ -17,3 +17,9 @@
     background-color: antiquewhite;
     border-radius: 20px;
 }
+@media screen and (max-width: 786px){ 
+  .edit_container{
+      top:13%;
+      height: 73%;
+  }
+}
