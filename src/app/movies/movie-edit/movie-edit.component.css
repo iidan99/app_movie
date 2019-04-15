@@ -135,7 +135,7 @@
         border: 1px solid red;
     }
 
-    @media screen and (max-width: 786px){
+    @media screen and (max-width: 639px){
         .edit{
             display: inline-block;
         }
