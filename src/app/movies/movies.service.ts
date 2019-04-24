@@ -50,4 +50,17 @@ export class MoviesService {
     this.movies[corrcetMovie].runtime = newValues.time;
     this.movies[corrcetMovie].year = newValues.year;
   }
+
+  movieSort(value: string){
+    
+    this.movies.sort((a, b) => {
+      if (a[value] < b[value]) {
+        return 0;
+      }
+      if (a[value] > b[value]) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 }

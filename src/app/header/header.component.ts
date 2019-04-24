@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MoviesService } from '../movies/movies.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  @ViewChild("name") name;
+  constructor(private movieService: MoviesService) { }
 
   ngOnInit() {
   }
 
+  onSelect(element: string){
+    this.movieService.movieSort(element);
+
+  }
 }

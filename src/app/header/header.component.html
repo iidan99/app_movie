@@ -2,9 +2,9 @@
     <div class="short-row">
         <button class="droop">Sort By</button>
         <div class="dropdown-content">
-            <a href="">Name</a>
-            <a href="">Year</a>
-            <a href="">Run-Time</a>
+            <a class="selector" (click)="onSelect('title')">Name</a>
+            <a class="selector" (click)="onSelect('year')">Year</a>
+            <a class="selector" (click)="onSelect('runtime')">Run-Time</a>
         </div>
     </div>
     <div class="row">

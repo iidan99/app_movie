@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PopupService } from 'src/app/sheard/popup.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MovieModel } from '../movies.model';
@@ -24,7 +24,7 @@ export class MovieEditComponent implements OnInit {
       
       this.movieForm = new FormGroup({
         title: new FormControl(this.movie.title, Validators.required),
-        time: new FormControl(this.movie.runtime, [Validators.min(80), Validators.max(350)]),
+        time: new FormControl(this.movie.runtime, [Validators.required ,Validators.min(80), Validators.max(350)]),
         year: new FormControl(this.movie.year, [ Validators.required, Validators.min(1989), Validators.max(new Date().getFullYear())])
       });
   }
@@ -36,7 +36,8 @@ export class MovieEditComponent implements OnInit {
   onSubmit() {
     if(this.movie.title != this.movieForm.value.title || this.movie.year != this.movieForm.value.year 
       || this.movie.runtime != this.movieForm.value.time){
-      // console.log(this.movieForm.value);    
+      this.popupservice.onSave(this.movieForm.value);
+      this.popupservice.active = false;
     }
     else{
     // console.log(this.movieForm);
