@@ -1,58 +1,74 @@
 import { Injectable } from '@angular/core';
 import { MovieModel } from './movies.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, from } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  private movies: MovieModel[] = [
-    new MovieModel("Spider-Man: Into the Spider-Verse",
-      "2018",
-      "117 min",
-      "Animation, Action, Adventure, Comedy, Family, Sci-Fi",
-      "English, Spanish",
-      "1",
-      "https://images-na.ssl-images-amazon.com/images/I/91Tr%2BbhnMUL._SY679_.jpg"
-    ),
-    new MovieModel("Black Panther",
-      "2018",
-      "134 min",
-      "Action, Adventure, Sci-Fi",
-      "Swahili, Nama, English, Xhosa, Korean",
-      "tt1825683",
-      "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_SX300.jpg"
-    )
-  ];
-
+  private movies: MovieModel[] = [];
+  apiIndex = ['tt7634968',
+    'tt3896198',
+    'tt6823368',
+    'tt0379786',
+    'tt1477834',
+    'tt0955308',
+    'tt4701182',
+    'tt4633694',
+    'tt4154916',
+    'tt1987680',
+    'tt3513498',
+    'tt0437086',
+    'tt8155288',
+    'tt4154756',
+    'tt1270797',
+    'tt1825683'];
+  index = 0;
   movie: MovieModel;
   updateMovie: BehaviorSubject<MovieModel[]> = new BehaviorSubject<MovieModel[]>(this.movies);
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   onGetMovies() {
     return this.movies.slice();
   }
 
+  getServers() {
+      return this.http.get(`https://www.omdbapi.com/?i=${this.apiIndex[this.index]}&apikey=1f6ad072&`).subscribe(
+        (response: MovieModel) => {this.movies.push(response),
+        this.getMovies()
+        },
+        (error) => console.log(error)
+        );
+    }
+
+  getMovies(){
+    this.index++;
+    console.log(this.index)
+    if(this.index !== this.apiIndex.length)
+    {
+      this.getServers();
+    }
+  }
   onRemove() {
-    const movId = this.movie.id;
-    this.movies = this.movies.filter(movie => movie.id !== movId);
+    const movId = this.movie.imdbID;
+    this.movies = this.movies.filter(movie => movie.imdbID !== movId);
     this.updateMovie.next(this.movies);
   }
-  onAdd(){
+  onAdd() {
     this.movies.push(this.movie);
     this.updateMovie.next(this.movies);
   }
-  onSave(newValues){
-    
-    const corrcetMovie = this.movies.findIndex(movie => movie.id === this.movie.id);
-    this.movies[corrcetMovie].title = newValues.title;
-    this.movies[corrcetMovie].runtime = newValues.time;
-    this.movies[corrcetMovie].year = newValues.year;
+  onSave(newValues) {
+    const corrcetMovie = this.movies.findIndex(movie => movie.imdbID === this.movie.imdbID);
+    this.movies[corrcetMovie].Title = newValues.title;
+    this.movies[corrcetMovie].Runtime = newValues.time;
+    this.movies[corrcetMovie].Year = newValues.year;
   }
 
-  movieSort(value: string){
-    
+  movieSort(value: string) {
+
     this.movies.sort((a, b) => {
       if (a[value] < b[value]) {
         return 0;

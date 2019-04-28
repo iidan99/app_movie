@@ -23,9 +23,9 @@ export class MovieEditComponent implements OnInit {
       this.movie = this.popupservice.movie;
       
       this.movieForm = new FormGroup({
-        title: new FormControl(this.movie.title, Validators.required),
-        time: new FormControl(this.movie.runtime, [Validators.required ,Validators.min(80), Validators.max(350)]),
-        year: new FormControl(this.movie.year, [ Validators.required, Validators.min(1989), Validators.max(new Date().getFullYear())])
+        title: new FormControl(this.movie.Title, Validators.required),
+        time: new FormControl(this.movie.Runtime, [Validators.required ,Validators.min(80), Validators.max(350)]),
+        year: new FormControl(this.movie.Year, [ Validators.required, Validators.min(1989), Validators.max(new Date().getFullYear())])
       });
   }
 
@@ -34,8 +34,8 @@ export class MovieEditComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.movie.title != this.movieForm.value.title || this.movie.year != this.movieForm.value.year 
-      || this.movie.runtime != this.movieForm.value.time){
+    if(this.movie.Title != this.movieForm.value.title || this.movie.Year != this.movieForm.value.Year 
+      || this.movie.Runtime != this.movieForm.value.time){
       this.popupservice.onSave(this.movieForm.value);
       this.popupservice.active = false;
     }

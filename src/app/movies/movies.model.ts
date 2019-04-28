@@ -1,13 +1,13 @@
 export class MovieModel {
-  constructor(public title: string, public year: string, public runtime: string, public genre: string, public language: string,
-    public id: string,
-    public poster: string) {
-    this.title = title;
-    this.year = year;
-    this.runtime = runtime;
-    this.genre = genre;
-    this.language = language;
-    this.id = id;
-    this.poster = poster;
+  constructor(public Title: string, public Year: string, public Runtime: string, public Genre: string, public Language: string,
+    public imdbID: string,
+    public Poster: string) {
+    this.Title = Title;
+    this.Year = Year;
+    this.Runtime = Runtime;
+    this.Genre = Genre;
+    this.Language = Language;
+    this.imdbID = imdbID;
+    this.Poster = Poster;
   }
 }

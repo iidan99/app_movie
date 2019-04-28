@@ -4,21 +4,21 @@
     <span class="right_line"></span>
   </div>
   <div class="left_content">
-    <img class="movie_poster" [src]="movie.poster" alt="{{ movie.title }} ">
+    <img class="movie_poster" [src]="movie.Poster" alt="{{ movie.Title }} ">
   </div>
   <div class="right_content">
     <form (ngSubmit)="onSubmit()" [formGroup]="movieForm" class="form">
       <div class="edit-row">
         <p class="movie_options">Movie Name</p>
-        <input class="input_field" type="text" formControlName="title" value="{{ movie.title }}">
+        <input class="input_field" type="text" formControlName="title" value="{{ movie.Title }}">
       </div>
       <div class="edit-row">
         <p class="movie_options">Movie Time</p>
-        <input class="input_field" type="text" formControlName="time" value="{{ movie.runtime }}">
+        <input class="input_field" type="text" formControlName="time" value="{{ movie.Runtime }}">
       </div>
       <div class="edit-row">
         <p class="movie_options">Movie Year</p>
-        <input class="input_field" type="number" formControlName="year" value="{{ movie.year }}">
+        <input class="input_field" type="number" formControlName="year" value="{{ movie.Year }}">
       </div>
       <div class="edit_btn">
         <div class="btn">
