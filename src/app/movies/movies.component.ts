@@ -3,10 +3,6 @@ import { MoviesService } from './movies.service';
 import { PopupService } from '../sheard/popup.service';
 
 import { Observable, Observer, Subscription } from 'rxjs';
-import { MovieModel } from './movies.model';
-import { error } from '@angular/compiler/src/util';
-import { timeout } from 'q';
-// import 'rxjs/Rx';
 
 @Component({
   selector: 'app-movies',
@@ -21,7 +17,7 @@ export class MoviesComponent implements OnInit {
   constructor(private movieService: MoviesService, private popupService: PopupService) { }
 
   ngOnInit() {
-    this.movieService.getServers();
+    this.movieService.getMovies();
     this.subscription = this.movieService.updateMovie.subscribe((data) => {
       this.movieLists = data;
       this.popupService.active = false;
@@ -32,14 +28,16 @@ export class MoviesComponent implements OnInit {
     this.movieService.movie = movie;
     this.popupService.edit = false;
   }
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
-  }
+  
   onEdit(movie){
     console.log(this.movieLists[0].Title);
     this.popupService.active = true;
     this.popupService.edit = true;
     this.movieService.movie = movie;
     this.popupService.movie = movie;
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }

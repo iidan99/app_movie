@@ -23,7 +23,7 @@ export class MovieEditComponent implements OnInit {
       this.movie = this.popupservice.movie;
       
       this.movieForm = new FormGroup({
-        title: new FormControl(this.movie.Title, Validators.required),
+        title: new FormControl(this.movie.Title, [Validators.required]),
         time: new FormControl(this.movie.Runtime, [Validators.required ,Validators.min(80), Validators.max(350)]),
         year: new FormControl(this.movie.Year, [ Validators.required, Validators.min(1989), Validators.max(new Date().getFullYear())])
       });
