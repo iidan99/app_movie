@@ -25,7 +25,8 @@ export class MoviesService {
     'tt4154756',
     'tt1270797',
     'tt1825683'];
-
+  sortVal = 1;
+  sortVal2 = -1;
   sortBy: string;
   index = 0;
   movie: MovieModel;
@@ -40,9 +41,10 @@ export class MoviesService {
   getMovies() {
     return this.http.get(`https://www.omdbapi.com/?i=${this.movieIndex[this.index]}&apikey=1f6ad072&`).subscribe(
       (response: MovieModel) => {
-        if(response.Title !== undefined){
-        this.movies.push(response),
-        this.changeIndex()
+        if (response.Title !== undefined) {
+          this.movies.push(response),
+            this.movies.sort((a, b) => a.Title < b.Title ? -1 : 1),
+            this.changeIndex()
         }
       },
       (error) => console.log(error)
@@ -64,10 +66,9 @@ export class MoviesService {
   onSave(newValues) {
     const correctMovie = this.movies.findIndex(movie => movie.imdbID === this.movie.imdbID);
     let data = this.movies.find(element => element.Title === newValues.title);
-    if(data === undefined){
-       this.movies[correctMovie].Title = newValues.title;
-    }
-    else{
+    if (data === undefined) {
+      this.movies[correctMovie].Title = newValues.title;
+    } else {
       console.log("error");
     }
     this.movies[correctMovie].Runtime = newValues.time;
@@ -81,18 +82,24 @@ export class MoviesService {
   }
 
   movieSort(value: string) {
-    let sortVal:number = 1;
-    if(this.sortBy === value){
-      sortVal = -1;
+    console.log(value);
+
+    if (this.sortBy === value && this.sortVal !== -1) {
+      this.sortVal = -1;
+      this.sortVal2 = 1;
+    } else {
+      this.sortVal = 1;
+      this.sortVal2 = -1;
     }
+
     this.movies.sort((a, b) => {
       if (a[value] < b[value]) {
         this.sortBy = value;
-        return sortVal;
+        return this.sortVal;
       }
       if (a[value] > b[value]) {
         this.sortBy = value;
-        return -1;
+        return this.sortVal2;
       }
       return 0;
     });

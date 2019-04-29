@@ -10,8 +10,8 @@ import { MovieModel } from '../movies.model';
 })
 export class MovieEditComponent implements OnInit {
   movieGenre = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Drama",
-    "Family", "Fantasy", "Horror", "Mystery",
-    "Romance", "Sci-Fi", "Superhero", "War"];
+    "Family", 'Fantasy', 'Horror', "Mystery",
+    "Romance", "Sci-Fi", 'Superhero', "War"];
 
     check;
     movie: MovieModel;
