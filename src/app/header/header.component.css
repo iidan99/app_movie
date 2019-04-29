@@ -25,7 +25,7 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 9.2vw;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -33,13 +33,16 @@
     display: block;
   }
   .dropdown-content a {
-    color: black;
+    color: #ffffff;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border-top: 2px solid #000000;
+    background-color: #ae0f0a;
   }
   .dropdown-content a:hover {
-    background-color: #3e8e41;
+    background-color: #000000;
+    color: #f9f9f9;
   }
 
   .short-row{
@@ -50,10 +53,10 @@
       height: 20px;
   }
 .droop{
-    width: 80px;
+    width: 9.2Vw;
     height: 30px;
     border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: azure;
 }
 

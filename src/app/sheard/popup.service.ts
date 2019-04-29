@@ -14,7 +14,7 @@ export class PopupService {
   onDelete() {
     this.movieService.onRemove();
   }
-  onSave(movieTitle){
-    this.movieService.onSave(movieTitle);
+  onSave(newValues){
+    this.movieService.onSave(newValues);
   }
 }

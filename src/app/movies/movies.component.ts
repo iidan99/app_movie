@@ -30,7 +30,6 @@ export class MoviesComponent implements OnInit {
   }
   
   onEdit(movie){
-    console.log(this.movieLists[0].Title);
     this.popupService.active = true;
     this.popupService.edit = true;
     this.movieService.movie = movie;
